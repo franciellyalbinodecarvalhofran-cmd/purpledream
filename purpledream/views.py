@@ -12,4 +12,4 @@ def login(request):
     return HttpResponse("login")
 
 def inicial(request):
-    return HttpResponse("Tela inicial")
+    return render(request, "index.html")
