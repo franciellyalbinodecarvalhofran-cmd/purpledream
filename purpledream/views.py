@@ -6,10 +6,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def cardapio(request):
-    return HttpResponse("cardapío")
+    return HttpResponse("cardapio.html")
 
 def login(request):
-    return HttpResponse("login")
+    return HttpResponse("login.html")
 
 def inicial(request):
     return render(request, "index.html")
