@@ -1,238 +1,261 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doceria - Cardápio Digital</title>
+    <title>Purple Dream - Cardápio do Dia</title>
     <style>
-        /* CSS - ESTILIZAÇÃO BASEADA NO FIGMA */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: #f9f6fc;
-            color: #4a2840;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #e9d5ff;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        /* Simulação da tela do celular */
-        .smartphone-screen {
-            width: 100%;
-            background-color: #ffffff;
-            border: 8px solid #333;
-            border-radius: 20px;
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-            overflow-y: hidden;
-            max-width: 1200px;
-        }
-
-        /* Header / Topo */
-        
-        header {
-            background-color: #6a1b9a;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            border-top-left-radius: 24px;
-            border-top-right-radius: 24px;
-        }
-
-        .logo-placeholder {
-            width: 60px;
-            height: 60px;
-            background-color: #e1bee7;
-            border-radius: 50%;
-            margin: 0 auto 10px;
+        /* Fundo com imagem de bolo igual mockup */
+        .hero {
+           
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            color: #6a1b9a;
-            font-weight: bold;
-            font-size: 12px;
+            justify-content: center;
+            position: relative;
         }
 
-        /* Seção de Login / Cadastro Rápido */
-        .login-box {
-            padding: 20px;
-            background-color: #f3e5f5;
-            margin: 15px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .login-box input {
+        /* Menu topo roxo */
+        nav {
+            position: absolute;
+            top: 0;
             width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ce93d8;
+            background: rgba(106, 27, 154, 0.9);
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .menu {
+            display: flex;
+            gap: 35px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .btn-whatsapp {
+            border: 2px solid white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Título Cardápio do Dia */
+        .hero h1 {
+            font-size: 56px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        /* Caixa de Login com efeito vidro */
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 45px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 420px;
+            margin-top: 40px;
+        }
+
+        .login-card h3 {
+            text-align: center;
+            color: #6a1b9a;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .login-card label {
+            display: block;
+            color: #6a1b9a;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid #ce93d8;
             border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
             outline: none;
+        }
+
+        .login-card input:focus {
+            border-color: #6a1b9a;
         }
 
         .btn-entrar {
             width: 100%;
-            background-color: #6a1b9a;
+            background: #6a1b9a;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 14px;
             border-radius: 8px;
-            cursor: pointer;
+            font-size: 16px;
             font-weight: bold;
-            margin-top: 5px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        /* Títulos */
-        h2 {
+        .btn-entrar:hover {
+            background: #4a148c;
+        }
+
+        /* Seção Mais Vendidos roxa */
+        .mais-vendidos {
+            background: #6a1b9a;
+            padding: 60px 50px 80px;
             text-align: center;
-            font-size: 18px;
-            color: #4a148c;
-            margin: 15px 0 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* Grid do Cardápio (Doces) */
-        .cardapio-grid {
+        .mais-vendidos h2 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .grid-doces {
             display: grid;
-            grid-template-columns: repeat(41fr);
-            gap: 20px;
-            padding: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .doce-card {
-            background-color: #ffffff;
-            border: 2px solid #e1bee7;
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .doce-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .doce-img {
+        .doce-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .doce-item img {
             width: 100%;
-            height: 90px;
-            background-color: #d7ccc8;
-            border-radius: 8px;
+            height: 160px;
             object-fit: cover;
-            margin-bottom: 8px;
         }
 
-        .doce-nome {
-            font-size: 13px;
-            font-weight: bold;
-            color: #4e342e;
-            margin-bottom: 4px;
-        }
-
-        .btn-encomenda {
-            background-color: #8e24aa;
+        .btn-encomendar {
+            background: #6a1b9a;
             color: white;
             border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            cursor: pointer;
             width: 100%;
-            margin-top: 5px;
-        }
-
-        /* Seção Onde Estamos / Rodapé */
-        .footer-info {
-            padding: 15px;
-            background-color: #f3e5f5;
-            text-align: center;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
-        }
-
-        .whatsapp-link {
-            display: inline-flex;
-            align-items: center;
-            color: #25D366;
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 10px;
+            padding: 12px;
             font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .mapa-placeholder {
-            width: 100%;
-            height: 80px;
-            background-color: #b2dfdb;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-            color: #004d40;
-            margin-top: 5px;
+        @media (max-width: 768px) {
+            .grid-doces { grid-template-columns: repeat(2, 1fr); }
+            nav { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 38px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Container simulando o dispositivo móvel -->
-    <div class="smartphone-screen">
-        
-        <!-- Topo do App -->
-        <header>
-            <div class="logo-placeholder">DOCE</div>
-            <h1>Cardápio do Dia</h1>
-        </header>
+    <section class="hero">
+        <nav>
+            <div class="logo">Purple DREAM</div>
+            <div class="menu">
+                <a href="#">Receitas</a>
+                <a href="#">Contato</a>
+                <a href="#" class="btn-whatsapp">Fazer Pedido</a>
+            </div>
+        </nav>
 
-        <!-- Área de Acesso/Identificação -->
-        <section class="login-box">
-            <input type="text" placeholder="NOME">
-            <input type="tel" placeholder="TELEFONE">
-            <button class="btn-entrar">ENTRAR</button>
-        </section>
+        <h1>Cardápio do Dia</h1>
+        <p>Faça seu pedido online e retire na loja ou receba em casa</p>
 
+        <div class="login-card">
+            <h3>Login</h3>
+            <label>Nome</label>
+            <input type="text" placeholder="Seu nome">
+            
+            <label>Email</label>
+            <input type="email" placeholder="seu@email.com">
+            
+            <label>Senha</label>
+            <input type="password" placeholder="Sua senha">
+            
+            <button class="btn-entrar">Entrar</button>
+        </div>
+    </section>
+
+    <section class="mais-vendidos">
         <h2>Mais Vendidos</h2>
-
-        <!-- Grid de Produtos conforme o Figma -->
-        <section class="cardapio-grid">
-            <div class="doce-card">
-                <!-- Substitua 'brigadeiro.jpg' pela sua imagem real -->
-                <img src="https://placeholder.com" alt="Brigadeiro" class="doce-img">
-                <div class="doce-nome">Brigadeiro Gourmet</div>
-                <button class="btn-encomenda">Encomendar</button>
+        <div class="grid-doces">
+            <div class="doce-item">
+                <img src="{% static 'img/image4.png' %}" alt="Cupcake">
+                <button class="btn-encomendar">Encomendar</button>
             </div>
-
-            <div class="doce-card">
-                <img src="https://placeholder.com" alt="Bolo de Pote" class="doce-img">
-                <div class="doce-nome">Bolo de Pote</div>
-                <button class="btn-encomenda">Encomendar</button>
+            <div class="doce-item">
+                <img src="{% static 'img/8d3805ee-6403-45f0-9a54-a55a85172f991.png' %}" alt="Bolo">
+                <button class="btn-encomendar">Encomendar</button>
             </div>
-
-            <div class="doce-card">
-                <img src="https://placeholder.com" alt="Cupcake" class="doce-img">
-                <div class="doce-nome">Cupcakes Variados</div>
-                <button class="btn-encomenda">Encomendar</button>
+            <div class="doce-item">
+                <img src="{% static 'img/8d3805ee-6403-45f0-9a54-a55a85172f991.png' %}"alt="Brownie">
+                <button class="btn-encomendar">Encomendar</button>
             </div>
-
-            <div class="doce-card">
-                <img src="https://placeholder.com" alt="Trufas" class="doce-img">
-                <div class="doce-nome">Trufas Recheadas</div>
-                <button class="btn-encomenda">Encomendar</button>
+            <div class="doce-item">
+                <img src="{% static 'img/8d3805ee-6403-45f0-9a54-a55a85172f991.png' %}" alt="Torta">
+                <button class="btn-encomendar">Encomendar</button>
             </div>
-        </section>
-
-        <!-- Informações de Contato e Localização -->
-        <footer class="footer-info">
-            <a href="#" class="whatsapp-link">🟢 Chamar no WhatsApp</a>
-            <div><strong>Onde Estamos</strong></div>
-            <div class="mapa-placeholder">📍 Mapa / Localização da Loja</div>
-        </footer>
-
-    </div>
+        </div>
+    </section>
 
 </body>
 </html>
+
+

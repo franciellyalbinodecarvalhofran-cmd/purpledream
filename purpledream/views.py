@@ -1,15 +1,13 @@
-from django.shortcuts import render
 
-# Create your views here.
 
 from django.shortcuts import render
 from django.http import HttpResponse
 
 def cardapio(request):
-    return HttpResponse("cardapío.html")
+    return render("cardapío.html")
 
 def login(request):
-    return HttpResponse("login.html")
+    return render("login.html")
 
 def inicial(request):
     return render(request, "index.html")
