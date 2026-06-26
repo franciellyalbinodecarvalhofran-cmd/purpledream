@@ -4,8 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+    /* Caixa de Login com efeito vidro */
+ .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 45px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 420px;
+            margin-top: 40px;
+        }
+
+        .login-card h3 {
+            text-align: center;
+            color: #6a1b9a;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .login-card label {
+            display: block;
+            color: #6a1b9a;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid #ce93d8;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .login-card input:focus {
+            border-color: #6a1b9a;
+        }
+
+        .btn-entrar {
+            width: 100%;
+            background: #6a1b9a;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-entrar:hover {
+            background: #4a148c;
+        }
+    </style>
 </head>
 <body>
-    
+ 
+     <div class="login-card">
+        <h3>Login</h3>
+        <label>Nome</label>
+        <input type="text" placeholder="Seu nome">
+        
+        <label>Email</label>
+        <input type="email" placeholder="seu@email.com">
+        
+        <label>Senha</label>
+        <input type="password" placeholder="Sua senha">
+        
+        <button class="btn-entrar">Entrar</button>
+    </div>
 </body>
+</head>
 </html>
