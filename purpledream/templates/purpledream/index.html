@@ -195,6 +195,8 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
+            border-radius: 15px;
+            color: #f2f2f2;
         }
 
         @media (max-width: 768px) {
@@ -227,19 +229,19 @@
         <h2>Mais Vendidos</h2>
         <div class="grid-doces">
             <div class="doce-item">
-                 <img src="morango.jpg" alt="Trufas">
-                <button class="btn-Encomendar">Encomendar</button>
-            </div>
-            <div class="doce-item">
-                 <img src="maracujamussi.jpg" alt="mussi">
+                 <img src="{% static 'purpledream/img/morango.jpg' %}" alt="Trufas">
                 <button class="btn-encomendar">Encomendar</button>
             </div>
             <div class="doce-item">
-                 <img src="prestigio.jpg" alt="bolopote">
+                 <img src="{% static 'purpledream/img/maracujamussi.jpg' %}" alt="mussi">
                 <button class="btn-encomendar">Encomendar</button>
             </div>
             <div class="doce-item">
-                  <img src="brigadeiro.jpg" alt="Trufas">
+                 <img src="{% static 'purpledream/img/prestigio.jpg' %}" alt="bolopote">
+                <button class="btn-encomendar">Encomendar</button>
+            </div>
+            <div class="doce-item">
+                  <img src="{% static 'purpledream/img/brigadeiro.jpg' %}" alt="Trufas">
                 <button class="btn-encomendar">Encomendar</button>
             </div>
              
@@ -249,10 +251,10 @@
 
     <section class="hero">
         <nav>
-                <a href="#">Localização</a>
-                  <img src="celular de localização.png" alt="">
-                <a href="#">Contato</a> 
-                <a href="#" class="">Fazer Pedido</a>
+                <a href="#"><button class="btn-encomendar">Localização</button></a>
+                  <img src="{% static 'purpledream/img/celular de localização.png' %}" alt="">
+                <a href="#"><button class="btn-encomendar">Contato</button></a> 
+                <a href="{% url 'purpledream:cardapio' %}" class=""><button class="btn-encomendar">Fazer Pedido</button></a>
                   
         <nav>
             </div>

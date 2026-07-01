@@ -1,13 +1,10 @@
-
-
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def cardapio(request):
-    return render("cardapío.html")
+    return render(request, "purpledream/cardapio.html")
 
 def login(request):
-    return render("login.html")
+    return render(request, "purpledream/login.html")
 
 def inicial(request):
-    return render(request, "index.html")
+    return render(request, "purpledream/index.html")

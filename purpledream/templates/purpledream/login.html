@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +62,7 @@
         }
 
         .btn-entrar:hover {
-            background: #b48ae7;
+            background: #af7cee;
         }
         
        @media (min-width: 1024px) { 
@@ -86,7 +87,9 @@
         <label>Senha</label>
         <input type="password" placeholder="Sua senha">
         
-        <button class="btn-entrar">Entrar</button>
+        <a href="{% url 'purpledream:inicial' %}">
+            <button class="btn-entrar">Entrar</button>
+        </a>
     </div>   
     
 </style>
