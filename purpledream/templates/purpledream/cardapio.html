@@ -23,10 +23,11 @@
     }
 
     .grid-doces {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 25px;
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
     }
 
@@ -35,6 +36,9 @@
         border-radius: 15px;
         overflow: hidden;
         transition: 0.3s;
+        width: 220px;
+        display: flex;
+        flex-direction: column;
     }
 
     .doce-item:hover {
@@ -59,13 +63,27 @@
     }
 
     @media (max-width: 768px) {
-        .grid-doces { grid-template-columns: repeat(2, 1fr); }
+        .grid-doces { gap: 20px; }
+        .doce-item { width: calc(50% - 20px); }
         nav { flex-direction: column; gap: 15px; }
         .hero h1 { font-size: 38px; }
+    }
+
+    @media (max-width: 480px) {
+        .doce-item { width: 100%; }
     }
 </style>
 </head>
 <body>
+    <div style="padding: 20px 40px; background: #fff; display: flex; justify-content: space-between; align-items: center;">
+        <strong style="color: #65278b;">Purple Dreams</strong>
+        <nav style="display: flex; gap: 20px;">
+            <a href="{% url 'purpledream:home' %}" style="color: #65278b; text-decoration: none;">Home</a>
+            <a href="{% url 'purpledream:catalogo' %}" style="color: #65278b; text-decoration: none;">Catálogo</a>
+            <a href="{% url 'purpledream:carrinho' %}" style="color: #65278b; text-decoration: none;">Carrinho</a>
+            <a href="{% url 'purpledream:login' %}" style="color: #65278b; text-decoration: none;">Login</a>
+        </nav>
+    </div>
     <section class="mais-vendidos">
         <h1>Cardápio</h1>
         <div class="grid-doces">

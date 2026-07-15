@@ -1,0 +1,215 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Sweets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f8f8fc;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:white;
+}
+
+header h2{
+    color:#7b2cff;
+}
+
+nav a{
+    text-decoration:none;
+    color:#555;
+    margin:0 10px;
+}
+
+header button{
+    background:#7b2cff;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.banner{
+    background:#7b2cff;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.banner h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.banner p{
+    margin-bottom:20px;
+}
+
+.banner button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#7b2cff;
+    cursor:pointer;
+}
+
+.produtos{
+    padding:50px;
+}
+
+.produtos h2{
+    color:#7b2cff;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:250px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+    text-align:center;
+    padding-bottom:20px;
+}
+
+.card img{
+    width:100%;
+}
+
+.card h3{
+    margin:15px 0 10px;
+}
+
+.card p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.card button{
+    background:#7b2cff;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#eee;
+}
+</style>
+<body>
+
+<header>
+    <h2>Purple Dreams</h2>
+
+    <nav>
+        <a href="{% url 'purpledream:home' %}">Menu</a>
+        <a href="{% url 'purpledream:catalogo' %}">Pedidos</a>
+        <a href="{% url 'purpledream:carrinho' %}">Carrinho</a>
+    </nav>
+
+    <div>
+    <a href="{% url 'purpledream:login' %}">
+    <button>Login</button>
+    </a>
+    </div>
+    
+</header>
+
+<section class="banner">
+    <h1>CARDÁPIO DO DIA</h1>
+
+    <p>Descubra nossos doces artesanais.</p>
+
+    <a href="{% url 'purpledream:catalogo' %}">
+        <button>Ver Cardápio</button>
+    </a>
+</section>
+
+<section class="produtos">
+
+    <h2>Mais Vendidos</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/doce1.png' %}" alt="doce">
+            <h3>Trufas</h3>
+            <p>Chocolate belga.</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="trufas">
+                <input type="hidden" name="nome" value="Trufas">
+                <input type="hidden" name="preco" value="15.00">
+                
+            </form>
+            <a href="{% url 'purpledream:carrinho' %}"><button type="button">Ir para o carrinho</button></a>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/doce2.png' %}" alt="Mousse">
+            <h3>Mousse</h3>
+            <p>Frutas vermelhas.</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="mousse">
+                <input type="hidden" name="nome" value="Mousse">
+                <input type="hidden" name="preco" value="18.00">
+                
+            </form>
+            <a href="{% url 'purpledream:carrinho' %}"><button type="button">Ir para o carrinho</button></a>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/doce3.png' %}" alt="Bolo">
+            <h3>Bolo</h3>
+            <p>Baunilha especial.</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="bolo">
+                <input type="hidden" name="nome" value="Bolo">
+                <input type="hidden" name="preco" value="20.00">
+                
+            </form>
+            <a href="{% url 'purpledream:carrinho' %}"><button type="button">Ir para o carrinho</button></a>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2024 Purple Sweets</p>
+</footer>
+
+</body>
+</html>

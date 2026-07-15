@@ -295,46 +295,50 @@ footer {
         <div class="grid-doces">
             <div class="doce-item">
                 <a href="{% url 'purpledream:cardapio' %}">
-                 <img src="{% static 'purpledream/img/morango.jpg' %}" alt="Trufas">
-                <button class="btn-encomendar">Encomendar</button>
-            </a>
+                    <img src="{% static 'purpledream/img/morango.jpg' %}" alt="Trufas">
+                    <button class="btn-encomendar" type="button">Encomendar</button>
+                </a>
             </div>
             <div class="doce-item">
-                 <img src="{% static 'purpledream/img/maracujamussi.jpg' %} " alt="mussi">
-                <button class="btn-encomendar">Encomendar</button>
+                <a href="{% url 'purpledream:carrinho' %}">
+                    <img src="{% static 'purpledream/img/maracujamussi.jpg' %}" alt="mussi">
+                    <button class="btn-encomendar" type="button">Adicionar ao Carrinho</button>
+                </a>
             </div>
             <div class="doce-item">
-                 <img src="{% static 'purpledream/img/prestigio.jpg' %}" alt="bolopote">
-                <button class="btn-encomendar">Encomendar</button>
+                <a href="{% url 'purpledream:catalogo' %}">
+                    <img src="{% static 'purpledream/img/prestigio.jpg' %}" alt="bolopote">
+                    <button class="btn-encomendar" type="button">Ver Catálogo</button>
+                </a>
             </div>
             <div class="doce-item">
-                  <img src="{% static 'purpledream/img/brigadeiro.jpg' %}" alt="Trufas">
-                <button class="btn-encomendar">Encomendar</button>
+                <a href="{% url 'purpledream:login' %}">
+                    <img src="{% static 'purpledream/img/brigadeiro.jpg' %}" alt="Trufas">
+                    <button class="btn-encomendar" type="button">Fazer Login</button>
+                </a>
             </div>
-     </section> 
+        </div>
+    </section>
       
-     <footer>
+    <footer>
         <div class="footer-container">
-    
-            <a href="#">
-                <button class="footer-btn">📍 Localização</button>
+            <a href="{% url 'purpledream:catalogo' %}">
+                <button class="footer-btn" type="button">📍 Ver Catálogo</button>
             </a>
-    
-            <a href="#">
-                <button class="footer-btn">📞 Contato</button>
-            </a>
-    
+
             <a href="{% url 'purpledream:cardapio' %}">
-                <button class="footer-btn">🛒 Fazer Pedido</button>
+                <button class="footer-btn" type="button">📞 Ver Cardápio</button>
             </a>
-    
-            <!-- WhatsApp -->
+
+            <a href="{% url 'purpledream:carrinho' %}">
+                <button class="footer-btn" type="button">🛒 Carrinho</button>
+            </a>
+
             <a href="https://wa.me/5584999999999" target="_blank">
                 <img src="{% static 'purpledream/img/icon-wpp.svg' %}"
                      alt="WhatsApp"
                      class="whatsapp-icon">
             </a>
-    
         </div>
     </footer>
 </body>

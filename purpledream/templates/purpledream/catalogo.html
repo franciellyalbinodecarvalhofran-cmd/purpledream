@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purple Sweets</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f0ff;
+}
+
+header{
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+header h2{
+    color:#7a2cff;
+}
+
+nav a{
+    margin:0 10px;
+    text-decoration:none;
+    color:#555;
+}
+
+header button{
+    background:#7a2cff;
+    color:#fff;
+    border:none;
+    padding:8px 18px;
+    border-radius:20px;
+}
+
+.banner{
+    background:#ead9ff;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.banner h1{
+    color:#6b1fe6;
+    font-size:40px;
+}
+
+.banner p{
+    margin-top:15px;
+}
+
+.menu{
+    background:#7a2cff;
+    padding:40px;
+}
+
+.menu h2{
+    color:white;
+    margin-bottom:25px;
+}
+
+.produtos{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:220px;
+    border-radius:10px;
+    overflow:hidden;
+    text-align:center;
+    padding-bottom:15px;
+}
+
+.card img{
+    width:100%;
+}
+
+.card h3{
+    margin:10px;
+}
+
+.card p{
+    color:#7a2cff;
+    font-weight:bold;
+}
+
+.card button{
+    margin-top:10px;
+    background:#7a2cff;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+footer{
+    background:#fff;
+    text-align:center;
+    padding:20px;
+}
+</style>
+<body>
+
+<header>
+    <h2>Purple Dreams</h2>
+
+    <nav>
+        <a href="{% url 'purpledream:home' %}">Home</a>
+        <a href="{% url 'purpledream:catalogo' %}">Catálogo</a>
+        <a href="{% url 'purpledream:carrinho' %}">Carrinho</a>
+        
+    </nav>
+
+    <a href="{% url 'purpledream:login' %}"><button>Login</button></a>
+</header>
+
+<section class="banner">
+    <h1>A Celebração do Sabor</h1>
+    <p>Os melhores doces artesanais.</p>
+</section>
+
+<section class="menu">
+
+    <h2>Menu Completo</h2>
+
+    <div class="produtos">
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/bolo-chocolate.png' %}" alt="Bolo de Chocolate">
+            <h3>Bolo de Chocolate</h3>
+            <p>R$ 10,00
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="bolo_chocolate">
+                <input type="hidden" name="nome" value="Bolo de Chocolate">
+                <input type="hidden" name="preco" value="85.00">
+                <button type="submit">Comprar</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/bolobrigadeiro.jpg' %}" alt="Bolo de Coco">
+            <h3>Bolo de Coco</h3>
+            <p>R$ 10,00>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="bolo_coco">
+                <input type="hidden" name="nome" value="Bolo de Coco">
+                <input type="hidden" name="preco" value="75.00">
+                <button type="submit">Comprar</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/doce1.png' %}" alt="Cupcakes">
+            <h3>Cupcakes</h3>
+            <p>R$ 12,00</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="cupcakes">
+                <input type="hidden" name="nome" value="Cupcakes">
+                <input type="hidden" name="preco" value="12.00">
+                <button type="submit">Comprar</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'purpledream/img/doce2.png' %}" alt="Trufas">
+            <h3>Trufas</h3>
+            <p>R$ 6,50</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="trufas_catalogo">
+                <input type="hidden" name="nome" value="Trufas">
+                <input type="hidden" name="preco" value="6.50">
+                <button type="submit">Comprar</button>
+
+                
+            </form>
+        </div>
+         <div class="card">
+            <img src="{% static 'purpledream/img/doce2.png' %}" alt="Trufas">
+            <h3>Trufas</h3>
+            <p>R$ 6,50</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="trufas_catalogo">
+                <input type="hidden" name="nome" value="Trufas">
+                <input type="hidden" name="preco" value="6.50">
+                <button type="submit">Comprar</button>
+
+                
+            </form>
+        </div>
+         <div class="card">
+            <img src="{% static 'purpledream/img/doce2.png' %}" alt="Trufas">
+            <h3>Trufas</h3>
+            <p>R$ 6,50</p>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="trufas_catalogo">
+                <input type="hidden" name="nome" value="Trufas">
+                <input type="hidden" name="preco" value="6.50">
+                <button type="submit">Comprar</button>
+
+                
+            </form>
+        </div>
+          <div class="card">
+            <img src="{% static 'purpledream/img/bolobrigadeiro.jpg' %}" alt="Bolo de Coco">
+            <h3>Bolo de Coco</h3>
+            <p>R$ 10,00>
+            <form method="post" action="{% url 'purpledream:adicionar_carrinho' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="bolo_coco">
+                <input type="hidden" name="nome" value="Bolo de Coco">
+                <input type="hidden" name="preco" value="75.00">
+                <button type="submit">Comprar</button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2024 Purple Sweets</p>
+</footer>
+
+</body>
+</html>
